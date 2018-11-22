@@ -1,0 +1,19 @@
+{
+  "name": "digital-signage-renderer",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Kirk Brauer",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.6",
+    "@types/react-dom": "^16.0.9",
+    "digital-signage-types": "https://github.com/kirkbrauer/digital-signage-types",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "tslib": "^1.9.3",
+    "typescript": "^3.1.6"
+  }
+}
