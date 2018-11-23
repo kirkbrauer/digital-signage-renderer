@@ -7,15 +7,19 @@
   "scripts": {
     "build": "tsc"
   },
+  "precommit": [
+    "build"
+  ],
   "dependencies": {
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "digital-signage-types": "https://github.com/kirkbrauer/digital-signage-types"
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
     "@types/react": "^16.7.6",
     "@types/react-dom": "^16.0.9",
-    "tslib": "^1.9.3",
+    "digital-signage-types": "https://github.com/kirkbrauer/digital-signage-types",
+    "pre-commit": "^1.2.2",
     "typescript": "^3.1.6"
   }
 }
