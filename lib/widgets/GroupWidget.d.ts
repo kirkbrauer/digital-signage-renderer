@@ -1,8 +1,9 @@
-import { Component } from 'react';
 import { RenderWidgetProps } from '../index';
-export declare class GroupWidget extends Component<RenderWidgetProps> {
-    getFlexDirection(): "column" | "row" | "row-reverse" | "column-reverse" | undefined;
-    getWrapType(): "nowrap" | "wrap" | "wrap-reverse" | undefined;
-    getJustifyType(): "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly" | undefined;
-    render(): JSX.Element;
+import { Widget } from 'digital-signage-types';
+import { ConnectDropTarget } from 'react-dnd';
+interface GroupWidgetProps {
+    onDrop?: (widget: Partial<Widget>) => void;
+    connectDropTarget?: ConnectDropTarget;
 }
+declare const _default: import("react-dnd/lib/interfaces").DndComponentClass<RenderWidgetProps & GroupWidgetProps>;
+export default _default;

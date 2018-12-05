@@ -2,9 +2,25 @@ import React, { Component } from 'react';
 import getBaseStyle from '../getBaseStyle';
 import getBorderStyle from '../getBorderStyle';
 import { RenderWidgetProps } from '../index';
-import { FlexDirection, WrapType, JustifyType } from 'digital-signage-types';
+import { FlexDirection, WrapType, JustifyType, Widget } from 'digital-signage-types';
+import {
+  ConnectDropTarget,
+  DropTarget,
+  DropTargetMonitor
+} from 'react-dnd';
 
-export class GroupWidget extends Component<RenderWidgetProps> {
+interface GroupWidgetProps {
+  onDrop?: (widget: Partial<Widget>) => void;
+  connectDropTarget?: ConnectDropTarget;
+}
+
+const groupWidgetTarget = {
+  drop(props: RenderWidgetProps & GroupWidgetProps, monitor: DropTargetMonitor) {
+    if (props.onDrop) props.onDrop(monitor.getItem());
+  }
+};
+
+class GroupWidget extends Component<RenderWidgetProps & GroupWidgetProps> {
 
   getFlexDirection() {
     switch (this.props.widget.props.direction) {
@@ -53,3 +69,13 @@ export class GroupWidget extends Component<RenderWidgetProps> {
     );
   }
 }
+
+export default DropTarget<RenderWidgetProps & GroupWidgetProps>(
+  'GROUP_WIDGET',
+  groupWidgetTarget,
+  (connect, monitor) => ({
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver(),
+    canDrop: monitor.canDrop(),
+  })
+)(GroupWidget);
