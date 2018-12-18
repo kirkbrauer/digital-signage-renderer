@@ -11,7 +11,7 @@ import { VideoWidget } from './widgets/VideoWidget';
 import { WeatherWidget } from './widgets/WeatherWidget';
 
 export * from './widgets';
-export * from './WidgetEventContext';
+export * from './WidgetContext';
 export * from './WidgetEvents';
 
 export interface RenderWidgetProps {

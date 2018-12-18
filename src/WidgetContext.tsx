@@ -1,26 +1,29 @@
 import React, { SFC, createContext } from 'react';
 import { WidgetOnChangeEvent } from './WidgetEvents';
 
-export interface WidgetEventContextType {
+export interface WidgetContextType {
   onChange?: (event: WidgetOnChangeEvent) => void;
+  autoplay?: boolean;
 }
 
-export const WidgetEventContext = createContext<WidgetEventContextType>({});
+export const WidgetContext = createContext<WidgetContextType>({});
 
 interface WidgetEventProviderProps {
   onChange?: (event: WidgetOnChangeEvent) => void;
+  autoplay?: boolean;
 }
 
-export const WidgetEventProvider: SFC<WidgetEventProviderProps> = (props) => {
+export const WidgetProvider: SFC<WidgetEventProviderProps> = (props) => {
   return (
-    <WidgetEventContext.Provider value={{
+    <WidgetContext.Provider value={{
+      autoplay: props.autoplay,
       onChange: (event) => {
         if (props.onChange) props.onChange(event);
       }
     }}>
       {props.children}
-    </WidgetEventContext.Provider>
+    </WidgetContext.Provider>
   );
 };
 
-export const WidgetEventConsumer = WidgetEventContext.Consumer;
+export const WidgetConsumer = WidgetContext.Consumer;

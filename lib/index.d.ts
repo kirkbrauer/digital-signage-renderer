@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Widget } from 'digital-signage-types';
 export * from './widgets';
-export * from './WidgetEventContext';
+export * from './WidgetContext';
 export * from './WidgetEvents';
 export interface RenderWidgetProps {
     widget: Widget;

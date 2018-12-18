@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { RenderWidgetProps } from '../index';
 import { Editor, EditorState, convertFromRaw, convertToRaw } from 'draft-js';
-import { WidgetEventContextType, WidgetEventContext } from '../WidgetEventContext';
+import { WidgetContextType, WidgetContext } from '../WidgetContext';
 
 interface TextBoxWidgetState {
   editorState: EditorState;
@@ -9,8 +9,8 @@ interface TextBoxWidgetState {
 
 export class TextBoxWidget extends Component<RenderWidgetProps, TextBoxWidgetState> {
 
-  static contextType = WidgetEventContext;
-  context: WidgetEventContextType;
+  static contextType = WidgetContext;
+  context: WidgetContextType;
 
   constructor(props: RenderWidgetProps) {
     super(props);
